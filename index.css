@@ -91,3 +91,25 @@ textarea {
 
   cursor: pointer;
 }
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.table__head {
+  font-weight: bold;
+}
+
+.table__body,
+.table__head {
+  display: flex;
+  justify-content: space-around;
+
+  border-bottom: solid var(--border-size-s) var(--line-color);
+}
+
+.table__items {
+  width: 100%;
+  text-align: right;
+}

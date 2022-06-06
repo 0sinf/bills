@@ -17,18 +17,16 @@ function createButton() {
 
 function getTable(listOfTr) {
   return `
-    <table>
-      <thead>
-        <tr>
-          <th>날짜</th>
-          <th>요일</th>
-          <th>출근 시간</th>
-          <th>퇴근 시간</th>
-          <th>시간</th>
-        </tr>
-      </thead>
+    <div class="table">
+      <div class="table__head">
+        <div class="table__items">날짜</div>
+        <div class="table__items">요일</div>
+        <div class="table__items">출근 시간</div>
+        <div class="table__items">퇴근 시간</div>
+        <div class="table__items">시간</div>
+      </div>
       ${listOfTr}
-    </table>
+    </div>
   `;
 }
 
@@ -45,7 +43,14 @@ function getTotalTimes(times) {
 
       const [hour, min] = getHourAndMinByTime(start, end);
 
-      const tr = `<tr><td>${date}</td><td>${dayOfWeek}</td><td>${start}</td><td>${end}</td><td>${hour}시간 ${min}분</td></tr>`;
+      const tr = `
+        <div class="table__body">
+          <div class="table__items">${date}</div>
+          <div class="table__items">${dayOfWeek}</div>
+          <div class="table__items">${start}</div>
+          <div class="table__items">${end}</div>
+          <div class="table__items">${hour}시간 ${min}분</div>
+        </div>`;
 
       prev[0] += hour;
       prev[1] += min;
