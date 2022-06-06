@@ -1,53 +1,18 @@
-function onClick() {
-  const times = document.getElementById("times");
-  const result = document.getElementById("result");
+function display() {
+  const container = document.getElementById("container");
 
-  const [totalH, totalM] = getTotalTimes(times.value);
-
-  result.innerHTML = getResult(totalH, totalM);
-}
-
-function getTotalTimes(times) {
-  let [totalH, totalM] = times.split("\n").reduce(
-    (prev, time) => {
-      if (!time) {
-        return prev;
-      }
-
-      const [date, dayOfWeek, start, end] = time.split(" ");
-
-      const [hour, min] = getHourAndMinByTime(start, end);
-
-      prev[0] += hour;
-      prev[1] += min;
-      return prev;
-    },
-    [0, 0]
-  );
-
-  totalH += Math.floor(totalM / 60);
-  totalM = totalM % 60;
-
-  return [totalH, totalM];
-}
-
-function getHourAndMinByTime(start, end) {
-  const [startHour, startMin] = start.split(":").map(Number);
-  const [endHour, endMin] = end.split(":").map(Number);
-
-  let h = endHour - startHour;
-  let m = endMin - startMin;
-
-  if (endMin - startMin < 0) {
-    m = 60 + m;
-    h = h - 1;
-  }
-
-  return [h, m];
-}
-
-function getResult(totalH, totalM) {
-  return `
-  Total time: ${totalH}시간 ${totalM}분
+  container.innerHTML = `
+    <h1 class="title">근무 시간 입력하기</h1>
+    <article id="content" class="content">
+      <textarea
+        class="textarea"
+        id="times"
+        placeholder="예시) 6/7 화 11:00 18:00"
+      ></textarea>
+      <button class="button" onclick="calculate()">총 근무 시간 확인</button>
+    </article>
+    <div class="result" id="result"></div>
   `;
 }
+
+display();

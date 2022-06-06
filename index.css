@@ -52,8 +52,12 @@ textarea {
 
 .content {
   width: 60%;
-  height: 50%;
+  height: 60%;
+}
 
+.textarea {
+  width: 100%;
+  height: 100%;
   padding: var(--padding);
 
   border: var(--border-size-s) solid var(--line-color);
@@ -64,7 +68,7 @@ textarea {
   margin-bottom: var(--margin-ns);
 }
 
-.content:focus {
+.textarea:focus {
   border: var(--border-size-s) solid var(--line-focus-color);
 }
 
