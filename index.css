@@ -11,7 +11,8 @@
   --bg-color: #71d4ff;
 
   /* font */
-  --font-size-mid: 1.2rem;
+  --font-size-s: 1.1rem;
+  --font-size-m: 1.2rem;
   --font-color: #fbfdf4;
 
   /* border-radius */
@@ -55,15 +56,17 @@ textarea {
   border: 2px solid var(--line-color);
   border-radius: var(--border-radius-s);
 
+  font-size: var(--font-size-s);
+
   margin-bottom: var(--margin-ns);
 }
 
 .content:focus {
-  border: 3px solid var(--line-focus-color);
+  border: 2px solid var(--line-focus-color);
 }
 
 .button {
-  font-size: var(--font-size-mid);
+  font-size: var(--font-size-m);
   color: #fbfdf4;
   padding: var(--padding);
   background-color: var(--bg-color);
