@@ -52,7 +52,9 @@ textarea {
 
 .content {
   width: 60%;
-  height: 60%;
+  height: auto;
+
+  margin-bottom: var(--margin-ns);
 }
 
 .textarea {
@@ -112,4 +114,6 @@ textarea {
 .table__items {
   width: 100%;
   text-align: right;
+
+  font-size: var(--font-size-s);
 }
