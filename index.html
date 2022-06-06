@@ -5,8 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
-    <script defer src="index.js" />
     <title>TT</title>
   </head>
-  <body></body>
+  <body>
+    <form class="form" onclick="onClick">
+      <h2>근무 시간 입력하기</h2>
+      <textarea class="form__textarea" id="times"></textarea>
+      <button class="form__button">총 근무 시간 확인</button>
+    </form>
+  </body>
+
+  <script>
+    function onClick(e) {
+      e.preventDefault();
+      console.log(e.target.value);
+    }
+  </script>
 </html>
