@@ -1,3 +1,5 @@
+// FIXME: 하드코딩된 요소들 변경 필요 (Element, Value)
+
 function calculate() {
   const container = document.getElementById("container");
   const times = document.getElementById("times");
