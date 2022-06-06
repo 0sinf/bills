@@ -68,7 +68,7 @@ function checkTimeValue(h, m, hour, min) {
   }
 
   if (isNotEqualMin(m, min)) {
-    console.log(`${m} doesn't not equal ${min} in HOUR.`);
+    console.log(`${m} doesn't not equal ${min} in Minute.`);
   }
 }
 
