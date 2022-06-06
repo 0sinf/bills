@@ -7,10 +7,12 @@
 1일 1줄로 다음과 같은 형식으로 입력
 
 ```txt
-MM/DD {요일} HH:mm HH:mm HH시간 mm분
+MM/DD {요일} HH:mm HH:mm
+MM/DD {요일} HH:mm HH:mm
+MM/DD {요일} HH:mm HH:mm
 ```
 
-날짜, 요일, 시작시간, 끝난시간, 직접 계산한 시간과 분을 bills.txt 파일로 입력
+날짜, 요일, 시작시간, 끝난시간을 Textarea에 입력
 
 ### 실행
 
