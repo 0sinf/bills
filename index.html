@@ -11,14 +11,13 @@
     <div class="container">
       <h1 class="title">근무 시간 입력하기</h1>
       <textarea class="content" id="times"></textarea>
-      <button class="button" onclick="onClick">총 근무 시간 확인</button>
+      <button class="button" onclick="onClick()">총 근무 시간 확인</button>
     </div>
   </body>
 
   <script>
-    function onClick(e) {
-      e.preventDefault();
-      console.log(e.target.value);
+    function onClick() {
+      console.log("onclick");
     }
   </script>
 </html>
