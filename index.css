@@ -16,6 +16,7 @@
   --font-color: #fbfdf4;
 
   /* border-radius */
+  --border-size-s: 2px;
   --border-radius-s: 4px;
 }
 
@@ -53,7 +54,7 @@ textarea {
 
   padding: var(--padding);
 
-  border: 2px solid var(--line-color);
+  border: var(--border-size-s) solid var(--line-color);
   border-radius: var(--border-radius-s);
 
   font-size: var(--font-size-s);
@@ -62,7 +63,7 @@ textarea {
 }
 
 .content:focus {
-  border: 2px solid var(--line-focus-color);
+  border: var(--border-size-s) solid var(--line-focus-color);
 }
 
 .button {
