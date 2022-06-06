@@ -11,25 +11,6 @@ function calculate() {
   container.innerHTML += createButton();
 }
 
-function createButton() {
-  return '<button class="button" onclick="display()">다시 입력하기</button>';
-}
-
-function getTable(listOfTr) {
-  return `
-    <div class="table">
-      <div class="table__head">
-        <div class="table__items">날짜</div>
-        <div class="table__items">요일</div>
-        <div class="table__items">출근 시간</div>
-        <div class="table__items">퇴근 시간</div>
-        <div class="table__items">시간</div>
-      </div>
-      ${listOfTr}
-    </div>
-  `;
-}
-
 function getTotalTimes(times) {
   let cnt = 0;
 
