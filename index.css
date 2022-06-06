@@ -13,6 +13,7 @@
   /* font */
   --font-size-s: 1.1rem;
   --font-size-m: 1.2rem;
+  --font-size-l: 1.4rem;
   --font-color: #fbfdf4;
 
   /* border-radius */
@@ -66,12 +67,23 @@ textarea {
   border: var(--border-size-s) solid var(--line-focus-color);
 }
 
-.button {
+.result {
+  margin-bottom: var(--margin-ns);
+
   font-size: var(--font-size-m);
+  font: bold;
+}
+
+.button {
+  font-size: var(--font-size-l);
+  font: bold;
+
   color: #fbfdf4;
   padding: var(--padding);
   background-color: var(--bg-color);
 
   border: none;
   border-radius: var(--border-radius-s);
+
+  cursor: pointer;
 }
