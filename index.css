@@ -48,7 +48,9 @@ textarea {
 
 .content {
   width: 60%;
-  height: 70%;
+  height: 50%;
+
+  padding: var(--padding);
 
   border: 2px solid var(--line-color);
   border-radius: var(--border-radius-s);
