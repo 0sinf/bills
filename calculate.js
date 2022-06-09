@@ -1,22 +1,33 @@
-// FIXME: 하드코딩된 요소들 변경 필요 (Element, Value)
-
-function calculate() {
+function displayResult(times) {
   const container = document.getElementById("container");
-  const times = document.getElementById("times");
-  const content = document.getElementById("content");
-  const result = document.getElementById("result");
+  container.innerHTML = "";
 
-  const [totalH, totalM, listOfTr, day] = getTotalTimes(times.value);
+  const [totalH, totalM, tbody, day] = getTotalTimes(times);
 
-  content.innerHTML = getTable(listOfTr);
-  result.innerHTML = getResult(totalH, totalM, day);
-  container.innerHTML += createButton();
+  const h = document.createElement("h1");
+  h.classList.add("title");
+  h.innerText = "입력 결과 출력";
+
+  const content = document.createElement("div");
+  content.classList.add("content");
+  content.append(getTable(tbody));
+
+  const result = getResult(totalH, totalM, day);
+
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.onclick = () => displayInit();
+  button.innerText = "다시 입력하기";
+
+  container.append(h, content, result, button);
 }
 
 function getTotalTimes(times) {
   let cnt = 0;
+  const tbody = document.createElement("div");
+  tbody.classList.add("table__body");
 
-  let [totalH, totalM, listOfTr] = times.split("\n").reduce(
+  let [totalH, totalM] = times.split("\n").reduce(
     (prev, time) => {
       if (!time) {
         return prev;
@@ -26,28 +37,41 @@ function getTotalTimes(times) {
 
       const [hour, min] = getHourAndMinByTime(start, end);
 
-      const tr = `
-        <div class="table__body">
-          <div class="table__items">${date}</div>
-          <div class="table__items">${dayOfWeek}</div>
-          <div class="table__items">${start}</div>
-          <div class="table__items">${end}</div>
-          <div class="table__items">${hour}시간 ${min}분</div>
-        </div>`;
+      const tr = getTableRow([
+        date,
+        dayOfWeek,
+        start,
+        end,
+        `${hour}시간 ${min}분`,
+      ]);
 
       prev[0] += hour;
       prev[1] += min;
-      prev[2].push(tr);
+      tbody.append(tr);
       cnt += 1;
       return prev;
     },
-    [0, 0, []]
+    [0, 0]
   );
 
   totalH += Math.floor(totalM / 60);
   totalM = totalM % 60;
 
-  return [totalH, totalM, listOfTr.join(""), cnt];
+  return [totalH, totalM, tbody, cnt];
+}
+
+function getTableRow(items) {
+  const tr = document.createElement("div");
+  tr.classList.add("table__row");
+
+  items.forEach((item) => {
+    const td = document.createElement("div");
+    td.classList.add("table__items");
+    td.innerText = item;
+    tr.append(td);
+  });
+
+  return tr;
 }
 
 function getHourAndMinByTime(start, end) {
@@ -66,7 +90,8 @@ function getHourAndMinByTime(start, end) {
 }
 
 function getResult(totalH, totalM, day) {
-  return `
-  Total time: 총 ${day}일 간 ${totalH}시간 ${totalM}분
-  `;
+  const result = document.createElement("div");
+  result.classList.add("result");
+  result.innerText = `Total time: 총 ${day}일 간 ${totalH}시간 ${totalM}분`;
+  return result;
 }
