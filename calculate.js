@@ -91,6 +91,7 @@ function getHourAndMinByTime(start, end) {
 
 function getResult(totalH, totalM, day) {
   const result = document.createElement("div");
+  result.classList.add("result");
   result.innerText = `Total time: 총 ${day}일 간 ${totalH}시간 ${totalM}분`;
   return result;
 }
