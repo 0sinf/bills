@@ -1,39 +1,57 @@
-// FIXME: 하드코딩된 요소들 변경 필요 (Element, innerHTML)
-
 function display() {
   const container = document.getElementById("container");
 
-  container.innerHTML = `
-    <h1 class="title">근무 시간 입력하기</h1>
-    <article id="content" class="content">
-      <textarea
-        class="textarea"
-        id="times"
-        placeholder="예시) 6/7 화 11:00 18:00"
-        ></textarea>
-      <button class="button" onclick="calculate()">총 근무 시간 확인</button>
-    </article>
-    <div class="result" id="result"></div>
-  `;
+  const h = document.createElement("h1");
+  h.classList.add("title");
+  h.innerText = "근무 시간 입력하기";
+
+  const article = document.createElement("article");
+  article.classList.add("content");
+  article.id = "content";
+
+  const textarea = document.createElement("textarea");
+  textarea.classList.add("textarea");
+  textarea.id = "times";
+  textarea.placeholder = "예시) 6/7 화 11:00 18:00";
+
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.onclick = () => calculate();
+  button.innerText = "총 근무 시간 확인";
+
+  article.append(textarea, button);
+  container.append(h, article);
 }
 
 function createButton() {
-  return '<button class="button" onclick="display()">다시 입력하기</button>';
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.onclick = () => display();
+  button.innerText = "다시 입력하기";
+
+  return button;
 }
 
-function getTable(listOfTr) {
-  return `
-    <div class="table">
-      <div class="table__head">
-        <div class="table__items">날짜</div>
-        <div class="table__items">요일</div>
-        <div class="table__items">출근 시간</div>
-        <div class="table__items">퇴근 시간</div>
-        <div class="table__items">시간</div>
-      </div>
-      ${listOfTr}
-    </div>
-  `;
+function getTable(trs) {
+  const tb = document.createElement("div");
+  tb.classList.add("table");
+
+  const th = document.createElement("div");
+  th.classList.add("table__head");
+
+  const headItems = ["날짜", "요일", "출근 시간", "퇴근 시간", "시간"];
+  const tds = headItems.map((item) => {
+    const td = document.createElement("div");
+    td.classList.add("table__items");
+    td.innerText = item;
+    return td;
+  });
+
+  th.append(tds);
+
+  tb.append(th, trs);
+
+  return tb;
 }
 
 display();
