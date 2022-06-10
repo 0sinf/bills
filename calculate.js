@@ -35,6 +35,12 @@ function calculate(times) {
 
       const [date, dayOfWeek, start, end] = time.split(" ");
 
+      if (!start && !end) {
+        const tr = getTableRow([date, dayOfWeek, "결근", "결근", "0시간 0분"]);
+        tbody.append(tr);
+        return prev;
+      }
+
       const [hour, min] = getHourAndMinByTime(start, end);
 
       const tr = getTableRow([
