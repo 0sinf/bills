@@ -35,7 +35,7 @@ function calculate(times) {
 
       const [date, dayOfWeek, start, end] = time.split(" ");
 
-      if (!start && !end) {
+      if (checkExcept(start, end)) {
         const tr = getTableRow([date, dayOfWeek, "결근", "결근", "0시간 0분"]);
         tbody.append(tr);
         return prev;
@@ -64,6 +64,13 @@ function calculate(times) {
   totalM = totalM % 60;
 
   return [totalH, totalM, tbody, cnt];
+}
+
+function checkExcept(start, end) {
+  if (start) {
+    return start === "결근" ? true : false;
+  }
+  return !start && !end;
 }
 
 function getTableRow(items) {
