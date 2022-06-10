@@ -2,7 +2,7 @@ function displayResult(times) {
   const container = document.getElementById("container");
   container.innerHTML = "";
 
-  const [totalH, totalM, tbody, day] = getTotalTimes(times);
+  const [totalH, totalM, tbody, day] = calculate(times);
 
   const h = document.createElement("h1");
   h.classList.add("title");
@@ -12,7 +12,7 @@ function displayResult(times) {
   content.classList.add("content");
   content.append(getTable(tbody));
 
-  const result = getResult(totalH, totalM, day);
+  const result = getResultMessage(totalH, totalM, day);
 
   const button = document.createElement("button");
   button.classList.add("button");
@@ -22,7 +22,7 @@ function displayResult(times) {
   container.append(h, content, result, button);
 }
 
-function getTotalTimes(times) {
+function calculate(times) {
   let cnt = 0;
   const tbody = document.createElement("div");
   tbody.classList.add("table__body");
@@ -89,7 +89,7 @@ function getHourAndMinByTime(start, end) {
   return [h, m];
 }
 
-function getResult(totalH, totalM, day) {
+function getResultMessage(totalH, totalM, day) {
   const result = document.createElement("div");
   result.classList.add("result");
   result.innerText = `Total time: 총 ${day}일 간 ${totalH}시간 ${totalM}분`;
