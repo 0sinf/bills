@@ -55,4 +55,49 @@ function createElem(type, className, option) {
   return elem;
 }
 
+function displayResult(times) {
+  const container = document.getElementById("container");
+  container.innerHTML = "";
+
+  const [totalH, totalM, tbody, day] = calculate(times);
+
+  const h = document.createElement("h1");
+  h.classList.add("title");
+  h.innerText = "입력 결과 출력";
+
+  const content = document.createElement("div");
+  content.classList.add("content");
+  content.append(getTable(tbody));
+
+  const result = getResultMessage(totalH, totalM, day);
+
+  const button = document.createElement("button");
+  button.classList.add("button");
+  button.onclick = () => displayInit();
+  button.innerText = "다시 입력하기";
+
+  container.append(h, content, result, button);
+}
+
+function getTableRow(items) {
+  const tr = document.createElement("div");
+  tr.classList.add("table__row");
+
+  items.forEach((item) => {
+    const td = document.createElement("div");
+    td.classList.add("table__items");
+    td.innerText = item;
+    tr.append(td);
+  });
+
+  return tr;
+}
+
+function getResultMessage(totalH, totalM, day) {
+  const result = document.createElement("div");
+  result.classList.add("result");
+  result.innerText = `Total time: 총 ${day}일 간 ${totalH}시간 ${totalM}분`;
+  return result;
+}
+
 displayInit();
