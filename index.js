@@ -44,4 +44,15 @@ function getTable(tbody) {
   return tb;
 }
 
+function createElem(type, className, option) {
+  const elem = document.createElement(type);
+  elem.classList.add(className);
+
+  Object.entries(option).forEach(([key, value]) => {
+    elem[key] = value;
+  });
+
+  return elem;
+}
+
 displayInit();
