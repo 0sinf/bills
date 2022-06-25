@@ -26,7 +26,7 @@ function displayInit() {
   });
 
   const button = createElem("button", "button", {
-    onclick: () => displayResult(textarea.value, 2),
+    onclick: () => displayResult(textarea.value, 5),
     innerText: "총 근무 시간 확인",
   });
 
@@ -53,7 +53,7 @@ function getTable(tbody) {
 function displayResult(times, timeout) {
   const container = document.getElementById("container");
 
-  container.innerText = "Loading ... ";
+  loading(container);
 
   setTimeout(() => {
     container.innerHTML = "";
@@ -74,6 +74,13 @@ function displayResult(times, timeout) {
 
     container.append(h, content, result, button);
   }, timeout * 1000);
+}
+
+function loading(container) {
+  container.innerHTML = "";
+  const circle = createElem("span", "dot");
+
+  container.append(circle);
 }
 
 function getTableRow(items) {
