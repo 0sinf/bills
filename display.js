@@ -1,18 +1,3 @@
-function createElem(type, className, option) {
-  const elem = document.createElement(type);
-  elem.classList.add(className);
-
-  if (!option) {
-    return elem;
-  }
-
-  Object.entries(option).forEach(([key, value]) => {
-    elem[key] = value;
-  });
-
-  return elem;
-}
-
 function displayInit() {
   const container = document.getElementById("container");
   container.innerHTML = "";
@@ -32,22 +17,6 @@ function displayInit() {
 
   content.append(textarea, button);
   container.append(h, content);
-}
-
-function getTable(tbody) {
-  const tb = createElem("div", "table");
-
-  const th = createElem("div", "table__head");
-
-  const headItems = ["날짜", "요일", "출근 시간", "퇴근 시간", "시간"];
-  headItems.forEach((item) => {
-    const td = createElem("div", "table__items", { innerText: item });
-    th.append(td);
-  });
-
-  tb.append(th, tbody);
-
-  return tb;
 }
 
 function displayResult(times, timeout) {
@@ -76,11 +45,20 @@ function displayResult(times, timeout) {
   }, timeout * 1000);
 }
 
-function loading(container) {
-  container.innerHTML = "";
-  const circle = createElem("span", "dot");
+function getTable(tbody) {
+  const tb = createElem("div", "table");
 
-  container.append(circle);
+  const th = createElem("div", "table__head");
+
+  const headItems = ["날짜", "요일", "출근 시간", "퇴근 시간", "시간"];
+  headItems.forEach((item) => {
+    const td = createElem("div", "table__items", { innerText: item });
+    th.append(td);
+  });
+
+  tb.append(th, tbody);
+
+  return tb;
 }
 
 function getTableRow(items) {
