@@ -26,7 +26,7 @@ function displayInit() {
   });
 
   const button = createElem("button", "button", {
-    onclick: () => displayResult(textarea.value, 5),
+    onclick: () => displayResult(textarea.value, 3),
     innerText: "총 근무 시간 확인",
   });
 
