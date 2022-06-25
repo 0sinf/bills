@@ -108,7 +108,7 @@ textarea {
 .table__head,
 .table__row {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 
   border-bottom: solid var(--border-size-s) var(--line-color);
 }
@@ -119,7 +119,21 @@ textarea {
 
 .table__items {
   width: 100%;
-  text-align: right;
+  text-align: left;
 
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xs);
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100vw;
+  }
+
+  .content {
+    width: 95%;
+  }
+
+  .textarea {
+    box-sizing: border-box;
+  }
 }
