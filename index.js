@@ -26,7 +26,7 @@ function displayInit() {
   });
 
   const button = createElem("button", "button", {
-    onclick: () => displayResult(textarea.value),
+    onclick: () => displayResult(textarea.value, 2),
     innerText: "총 근무 시간 확인",
   });
 
@@ -50,25 +50,30 @@ function getTable(tbody) {
   return tb;
 }
 
-function displayResult(times) {
+function displayResult(times, timeout) {
   const container = document.getElementById("container");
-  container.innerHTML = "";
 
-  const [totalH, totalM, tbody, day] = calculate(times);
+  container.innerText = "Loading ... ";
 
-  const h = createElem("h1", "title", { innerText: "입력 결과 출력" });
+  setTimeout(() => {
+    container.innerHTML = "";
 
-  const content = createElem("div", "content");
-  content.append(getTable(tbody));
+    const [totalH, totalM, tbody, day] = calculate(times);
 
-  const result = getResultMessage(totalH, totalM, day);
+    const h = createElem("h1", "title", { innerText: "입력 결과 출력" });
 
-  const button = createElem("button", "button", {
-    onclick: () => displayInit(),
-    innerText: "다시 입력하기",
-  });
+    const content = createElem("div", "content");
+    content.append(getTable(tbody));
 
-  container.append(h, content, result, button);
+    const result = getResultMessage(totalH, totalM, day);
+
+    const button = createElem("button", "button", {
+      onclick: () => displayInit(),
+      innerText: "다시 입력하기",
+    });
+
+    container.append(h, content, result, button);
+  }, timeout * 1000);
 }
 
 function getTableRow(items) {
