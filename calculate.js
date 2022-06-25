@@ -6,6 +6,8 @@ function calculate(times) {
   let [totalH, totalM] = times.split("\n").reduce(
     (prev, time) => {
       if (!time) {
+        const tr = getTableRow(["", "", "", "", ""]);
+        tbody.append(tr);
         return prev;
       }
 
