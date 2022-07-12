@@ -6,8 +6,13 @@ module.exports = {
   entry: path.resolve(__dirname, "src", "index.ts"),
   module: {
     rules: [
-      { test: /\.tsx?$/, use: "ts-loader", exclude: /node_modules/ },
+      { test: /\.ts$/, use: "ts-loader", exclude: /node_modules/ },
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
+      {
+        test: /\.(ts|js)$/,
+        exclude: /node_modules/,
+        use: [{ loader: "babel-loader" }],
+      },
     ],
   },
   plugins: [
@@ -17,7 +22,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".ts", ".js"],
   },
   output: {
     filename: "main.js",
