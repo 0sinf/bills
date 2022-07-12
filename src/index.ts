@@ -1,3 +1,13 @@
 import "./index.css";
 
-console.log("hello");
+function main() {
+  const root = document.getElementById("root");
+
+  if (!root) {
+    return;
+  }
+
+  root.innerText = "Hello!";
+}
+
+main();
