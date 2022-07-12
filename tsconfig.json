@@ -3,7 +3,8 @@
     "lib": ["DOM", "es2021", "DOM.Iterable"],
     "moduleResolution": "node",
     "outDir": "./dist/",
-    "noImplicitAny": true,
+    // Why should be falsy?
+    "noImplicitAny": false,
     "module": "es6",
     "target": "es6",
     "allowJs": true,
