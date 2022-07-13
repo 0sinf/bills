@@ -1,3 +1,5 @@
+import createElem from "./utils/create-elem";
+
 import "./index.css";
 
 function main() {
@@ -7,7 +9,8 @@ function main() {
     return;
   }
 
-  root.innerText = "Hello!";
+  const h = createElem("h1", "title", { innerText: "Hello!!" });
+  root.appendChild(h);
 }
 
 main();
