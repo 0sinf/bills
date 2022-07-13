@@ -1,6 +1,8 @@
-import createElem from "./utils/create-elem";
+import { initializeRouter } from "./router";
 
 import "./index.css";
+
+initializeRouter();
 
 function main() {
   const root = document.getElementById("root");
@@ -8,9 +10,6 @@ function main() {
   if (!root) {
     return;
   }
-
-  const h = createElem("h1", "title", { innerText: "Hello!!" });
-  root.appendChild(h);
 }
 
 main();
