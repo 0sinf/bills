@@ -1,16 +1,11 @@
 {
   "compilerOptions": {
-    "lib": ["DOM", "es2021", "DOM.Iterable"],
-    "moduleResolution": "node",
     "outDir": "./dist/",
-    // Why should be falsy?
     "noImplicitAny": false,
     "module": "es6",
-    "target": "es6",
+    "target": "es5",
     "allowJs": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "typeRoots": ["./src/types"]
+    "moduleResolution": "node"
   },
   "exclude": ["node_modules"]
 }
