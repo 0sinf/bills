@@ -44,6 +44,7 @@ export default function createElement(
   if (typeof child === "string") {
     elem.innerText = child;
   } else {
+    // FIXME: If use babel, TS Error
     elem.append(...child);
   }
 

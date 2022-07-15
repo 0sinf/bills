@@ -8,11 +8,11 @@ module.exports = {
     rules: [
       { test: /\.ts$/, use: "ts-loader", exclude: /node_modules/ },
       { test: /\.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"] },
-      {
-        test: /\.(ts|js)$/,
-        exclude: /node_modules/,
-        use: [{ loader: "babel-loader" }],
-      },
+      // {
+      //   test: /\.(ts|js)$/,
+      //   exclude: /node_modules/,
+      //   use: [{ loader: "babel-loader" }],
+      // },
     ],
   },
   plugins: [
