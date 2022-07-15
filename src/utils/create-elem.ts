@@ -1,19 +1,52 @@
-export default function createElem(
+interface EventType {
+  type: string;
+  action: EventListenerOrEventListenerObject;
+}
+
+interface Attributes {
+  className?: string[];
+  events?: EventType;
+  type?: string;
+  href?: string;
+  target?: string;
+}
+
+export default function createElement(
   type: string,
-  className: string,
-  options: any
-): HTMLElement {
+  attributes: Attributes,
+  child: HTMLElement[] | string | null
+) {
   const elem = document.createElement(type);
 
-  elem.classList.add(className);
+  Object.entries(attributes).forEach(([key, value]) => {
+    if (key === undefined) {
+      return;
+    }
 
-  if (!options) {
+    if (key === "className") {
+      elem.className = value.join().replace(",", " ");
+    }
+
+    if (key === "events") {
+      const { type, action } = value as EventType;
+      elem.addEventListener(type, action);
+    }
+
+    if (key !== "className" && key !== "events") {
+      elem.setAttribute(key, value);
+    }
+  });
+
+  if (!child) {
     return elem;
   }
 
-  Object.entries(options).forEach(([key, value]) => {
-    elem[key] = value;
-  });
+  if (typeof child === "string") {
+    elem.innerText = child;
+  } else {
+    // FIXME: If use babel, TS Error
+    elem.append(...child);
+  }
 
   return elem;
 }
