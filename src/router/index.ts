@@ -6,11 +6,8 @@ export function initializeRouter() {
   route();
 }
 
-export function addClickEvent(elem: HTMLElement, path: string) {
-  elem.addEventListener("click", (event) => {
-    event.preventDefault();
-    updatePath(path);
-  });
+export function go(path: string): EventListener {
+  return (evt: Event) => updatePath(path);
 }
 
 export function updatePath(path: string) {
