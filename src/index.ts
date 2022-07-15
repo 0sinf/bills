@@ -1,6 +1,9 @@
-import createElem from "./utils/create-elem";
+import { addClickEvent, initializeRouter } from "./router";
 
 import "./index.css";
+import createElem from "./utils/create-elem";
+
+initializeRouter();
 
 function main() {
   const root = document.getElementById("root");
@@ -9,8 +12,10 @@ function main() {
     return;
   }
 
-  const h = createElem("h1", "title", { innerText: "Hello!!" });
-  root.appendChild(h);
+  const btn = createElem("button", "button", null);
+  addClickEvent(btn, "/result");
+
+  root.append(btn);
 }
 
 main();
