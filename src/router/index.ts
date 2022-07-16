@@ -1,3 +1,5 @@
+import Home from "../pages/Home";
+
 export function initializeRouter() {
   if (window.location.hash) {
     window.history.replaceState(null, "", " ");
@@ -31,7 +33,8 @@ function render(page: string) {
 
   switch (page) {
     case "":
-      console.log("home");
+      const home = Home();
+      root.append(home);
       break;
     case "result":
       console.log("result");

@@ -9,6 +9,7 @@ interface Attributes {
   type?: string;
   href?: string;
   target?: string;
+  placeholder?: string;
 }
 
 export default function createElement(
