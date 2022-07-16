@@ -1,5 +1,6 @@
 import createElement from "../utils/create-elem";
 import TableData from "./TableData";
+
 export default function TableRow(data: string[]) {
   const tr = createElement(
     "div",
