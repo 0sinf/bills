@@ -1,4 +1,5 @@
 import Home from "../pages/Home";
+import Result from "../pages/Result";
 
 export function initializeRouter() {
   if (window.location.hash) {
@@ -33,11 +34,14 @@ function render(page: string) {
 
   switch (page) {
     case "":
+      root.innerHTML = "";
       const home = Home();
       root.append(home);
       break;
     case "result":
-      console.log("result");
+      root.innerHTML = "";
+      const result = Result();
+      root.append(result);
       break;
     default:
       console.log("error");
