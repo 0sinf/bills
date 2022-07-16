@@ -4,7 +4,7 @@ export default function Button({
   onclick,
   value,
 }: {
-  onclick: (evt: Event) => void;
+  onclick: EventListener;
   value: string;
 }) {
   const button = createElement(
