@@ -1,4 +1,5 @@
 import Home from "../pages/Home";
+
 export function initializeRouter() {
   if (window.location.hash) {
     window.history.replaceState(null, "", " ");
