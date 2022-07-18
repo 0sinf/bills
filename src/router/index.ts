@@ -20,7 +20,8 @@ export function updatePath(path: string) {
 }
 
 function route() {
-  const path = window.location.pathname.split("/")[2];
+  const base = process.env.NODE_ENV === "development" ? "/" : "/bills";
+  const path = window.location.pathname.split(base)[1];
 
   render(path);
 }
