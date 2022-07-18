@@ -1,5 +1,16 @@
-export default function calculate(data: string): string[][] {
-  return data.split("\n").reduce((prev: string[][], curr: string) => {
+interface returnCalculate {
+  records: string[][];
+  totalHour: number;
+  totalMin: number;
+  count: number;
+}
+
+export default function calculate(data: string): returnCalculate {
+  let totalHour = 0,
+    totalMin = 0,
+    count = 0;
+
+  const records = data.split("\n").reduce((prev: string[][], curr: string) => {
     if (!curr) {
       prev.push(["", "", "", "", ""]);
       return prev;
@@ -13,11 +24,19 @@ export default function calculate(data: string): string[][] {
     }
 
     const [h, m] = getHourAndMinByTime(start, end);
+    totalHour += h;
+    totalMin += m;
+    count += 1;
 
     prev.push([date, day, start, end, `${h}시간 ${m}분`]);
 
     return prev;
   }, []);
+
+  totalHour += Math.floor(totalMin / 60);
+  totalMin %= 60;
+
+  return { records, totalHour, totalMin, count };
 }
 
 function getHourAndMinByTime(start: string, end: string) {
