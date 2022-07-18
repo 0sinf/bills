@@ -22,6 +22,7 @@ export function updatePath(path: string) {
 function route() {
   const base = process.env.NODE_ENV === "development" ? "/" : "/bills";
   const path = window.location.pathname.split(base)[1];
+  console.log(path);
 
   render(path);
 }
