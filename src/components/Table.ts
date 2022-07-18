@@ -7,12 +7,12 @@ import Total from "./Total";
 
 export default function Table() {
   const data = store.getState();
-  const { records, totalHour, totalMin } = calculate(data);
+  const { records, totalHour, totalMin, count } = calculate(data);
 
   const table = createElement("div", { className: ["table"] }, [
     TableHead(["날짜", "요일", "출근 시간", "퇴근 시간", "시간"]),
     ...records.map((record) => TableRow(record)),
-    Total(totalHour, totalMin),
+    Total(totalHour, totalMin, count),
   ]);
 
   return table;

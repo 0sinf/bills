@@ -2,11 +2,13 @@ interface returnCalculate {
   records: string[][];
   totalHour: number;
   totalMin: number;
+  count: number;
 }
 
 export default function calculate(data: string): returnCalculate {
   let totalHour = 0,
-    totalMin = 0;
+    totalMin = 0,
+    count = 0;
 
   const records = data.split("\n").reduce((prev: string[][], curr: string) => {
     if (!curr) {
@@ -24,6 +26,7 @@ export default function calculate(data: string): returnCalculate {
     const [h, m] = getHourAndMinByTime(start, end);
     totalHour += h;
     totalMin += m;
+    count += 1;
 
     prev.push([date, day, start, end, `${h}시간 ${m}분`]);
 
@@ -33,7 +36,7 @@ export default function calculate(data: string): returnCalculate {
   totalHour += Math.floor(totalMin / 60);
   totalMin %= 60;
 
-  return { records, totalHour, totalMin };
+  return { records, totalHour, totalMin, count };
 }
 
 function getHourAndMinByTime(start: string, end: string) {
