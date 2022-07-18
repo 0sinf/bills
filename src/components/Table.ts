@@ -1,9 +1,13 @@
 import createElement from "../utils/create-elem";
 import TableHead from "./TableHead";
 import TableRow from "./TableRow";
+import store from "../store";
 
 export default function Table() {
   // FIXME: textarea로 입력된 데이터 받아오기
+  const data = store.getState();
+  console.log(data);
+
   const records = [
     ["d", "d", "d", "d", "d"],
     ["d", "d", "d", "d", "d"],
