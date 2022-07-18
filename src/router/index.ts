@@ -14,13 +14,14 @@ export function go(path: string): EventListener {
 }
 
 export function updatePath(path: string) {
-  window.history.pushState("", document.title, path);
+  const base = process.env.NODE_ENV === "development" ? "/" : "/bills/";
+  window.history.pushState("", document.title, `${base}${path}`);
 
   route();
 }
 
 function route() {
-  const base = process.env.NODE_ENV === "development" ? "/" : "/bills";
+  const base = process.env.NODE_ENV === "development" ? "/" : "/bills/";
   const path = window.location.pathname.split(base)[1];
   console.log(path);
 

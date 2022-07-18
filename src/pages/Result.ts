@@ -9,7 +9,7 @@ export default function Result() {
   const container = createElement("div", { className: ["container"] }, [
     Header("입력 결과 출력"),
     Article([Table()]),
-    Button({ onclick: go("/"), value: "다시 입력하기" }),
+    Button({ onclick: go(""), value: "다시 입력하기" }),
   ]);
 
   return container;

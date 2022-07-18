@@ -10,7 +10,7 @@ export default function Home() {
     Header("근무 시간 입력"),
     Article([
       Textarea("예시) 6/7 화 11:00 18:00"),
-      Button({ onclick: go("/result"), value: "총 근무 시간 확인" }),
+      Button({ onclick: go("result"), value: "총 근무 시간 확인" }),
     ]),
   ]);
 
