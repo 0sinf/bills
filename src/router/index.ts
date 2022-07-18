@@ -20,7 +20,7 @@ export function updatePath(path: string) {
 }
 
 function route() {
-  const path = window.location.pathname.split("/")[1];
+  const path = window.location.pathname.split("/")[2];
 
   render(path);
 }
