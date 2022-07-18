@@ -1,6 +1,6 @@
 import createElement from "../utils/create-elem";
 
-export default function Content(totalHour: number, totalMin: number) {
+export default function Total(totalHour: number, totalMin: number) {
   return createElement(
     "p",
     { className: ["result"] },

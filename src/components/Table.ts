@@ -3,7 +3,7 @@ import TableHead from "./TableHead";
 import TableRow from "./TableRow";
 import store from "../store";
 import calculate from "../utils/calculate";
-import Content from "./Content";
+import Total from "./Total";
 
 export default function Table() {
   const data = store.getState();
@@ -12,7 +12,7 @@ export default function Table() {
   const table = createElement("div", { className: ["table"] }, [
     TableHead(["날짜", "요일", "출근 시간", "퇴근 시간", "시간"]),
     ...records.map((record) => TableRow(record)),
-    Content(totalHour, totalMin),
+    Total(totalHour, totalMin),
   ]);
 
   return table;
