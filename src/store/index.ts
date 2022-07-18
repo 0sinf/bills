@@ -1,9 +1,15 @@
 import { Action, createStore } from "redux";
 
-const modifier = (input: string, action: Action) => {
+interface CustomAction extends Action {
+  data: string;
+}
+
+const initialState = "";
+
+const modifier = (input = initialState, action: CustomAction) => {
   switch (action.type) {
     case "calculate":
-      return input;
+      return action.data;
     case "reset":
       return "";
     default:
