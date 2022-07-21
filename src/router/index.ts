@@ -1,5 +1,6 @@
 import Home from "../pages/Home";
 import Result from "../pages/Result";
+import Loading from "../pages/Loading";
 
 export function initializeRouter() {
   if (window.location.hash) {
@@ -42,8 +43,14 @@ function render(page: string) {
       break;
     case "result":
       root.innerHTML = "";
-      const result = Result();
-      root.append(result);
+      const loading = Loading();
+      root.append(loading);
+
+      setTimeout(() => {
+        root.innerHTML = "";
+        const result = Result();
+        root.append(result);
+      }, 2000);
       break;
     default:
       console.log("error");
