@@ -1,6 +1,10 @@
 import createElement from "../utils/create-elem";
+import "../css/loading.css";
 
 export default function Loading() {
-  const circle = createElement("span", { className: ["dot"] }, null);
-  return circle;
+  const loading = createElement("div", { className: ["container"] }, [
+    createElement("span", { className: ["dot"] }, null),
+  ]);
+
+  return loading;
 }
