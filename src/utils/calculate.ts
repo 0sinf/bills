@@ -9,14 +9,14 @@ export default function calculate(data: string): returnCalculate {
   let totalHour = 0,
     totalMin = 0,
     count = 0;
-
+  console.log(data);
   const records = data.split("\n").reduce((prev: string[][], curr: string) => {
     if (!curr) {
       prev.push(["", "", "", "", ""]);
       return prev;
     }
 
-    const [date, day, start, end] = curr.split(" ");
+    const [date, day, start, end] = curr.split(" ").filter((d) => d !== "");
 
     if (start === "결근") {
       prev.push([date, day, "결근", "결근", "결근"]);
