@@ -9,7 +9,7 @@ export default function calculate(data: string): returnCalculate {
   let totalHour = 0,
     totalMin = 0,
     count = 0;
-  console.log(data);
+
   const records = data.split("\n").reduce((prev: string[][], curr: string) => {
     if (!curr) {
       prev.push(["", "", "", "", ""]);
