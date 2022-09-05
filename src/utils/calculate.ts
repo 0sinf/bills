@@ -16,7 +16,7 @@ export default function calculate(data: string): returnCalculate {
       return prev;
     }
 
-    const [date, day, start, end] = curr.split(" ");
+    const [date, day, start, end] = curr.split(" ").filter((d) => d !== "");
 
     if (start === "결근") {
       prev.push([date, day, "결근", "결근", "결근"]);
